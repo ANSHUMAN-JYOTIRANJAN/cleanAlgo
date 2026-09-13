@@ -130,7 +130,7 @@ export function GameProvider({ children }) {
     const logout = () => {
         localStorage.removeItem("token");
         localStorage.removeItem("user");
-        localStorage.removeItem(STORAGE_KEY);
+        // localStorage.removeItem(STORAGE_KEY);
         setGameState(initialGameState);
     };
 
