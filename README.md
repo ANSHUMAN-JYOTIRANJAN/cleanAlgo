@@ -41,31 +41,30 @@ Each quest contains:
 - Deadline
 - Completion status
 
-Quest operations:
+#### Quest Operations
 
-- Create quest
+- Create a quest
 - View all quests
-- View individual quest
-- Update quest
-- Delete quest
-- Complete quest
+- View an individual quest
+- Update a quest
+- Delete a quest
+- Complete a quest
 
 ### ⭐ XP & Level System
 
-Completing quests rewards the player with XP.
+Completing quests rewards users with XP. As users earn XP, they can level up and improve their character stats.
 
-User
-  ↓
+```text
 Create Quest
-  ↓
+     ↓
 Complete Quest
-  ↓
+     ↓
 Earn XP
-  ↓
+     ↓
 Increase Stats
-  ↓
+     ↓
 Level Up
-  ↓
+     ↓
 Unlock Achievements
-  ↓
+     ↓
 Track Progress
