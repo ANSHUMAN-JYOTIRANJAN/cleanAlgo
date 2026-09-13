@@ -54,17 +54,18 @@ Quest operations:
 
 Completing quests rewards the player with XP.
 
-Example:
-
-```text
-Level 1
-    ↓
+User
+  ↓
+Create Quest
+  ↓
 Complete Quest
-    ↓
-+50 XP
-    ↓
-Reach 100 XP
-    ↓
-Level Up 🎉
-    ↓
-Level 2
+  ↓
+Earn XP
+  ↓
+Increase Stats
+  ↓
+Level Up
+  ↓
+Unlock Achievements
+  ↓
+Track Progress
