@@ -1,9 +1,10 @@
-import {
-    BrowserRouter,
-    Routes,
-    Route,
-    Navigate
-} from "react-router-dom";
+import
+    {
+        BrowserRouter,
+        Routes,
+        Route,
+        Navigate
+    } from "react-router-dom";
 
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
@@ -18,15 +19,19 @@ import Achievements from "./pages/Achievements";
 
 import DashboardLayout from "./layouts/DashboardLayout";
 import ProtectedRoute from "./components/ProtectedRoute";
+
 import { GameProvider } from "./context/GameContext";
 
-function App() {
+function App()
+{
     return (
         <GameProvider>
-
             <BrowserRouter>
-
                 <Routes>
+
+                    {/* =========================
+                        PUBLIC ROUTES
+                    ========================= */}
 
                     <Route
                         path="/"
@@ -35,60 +40,66 @@ function App() {
 
                     <Route
                         path="/login"
-                        element={
-                            localStorage.getItem("token")
-                                ? <Navigate to="/dashboard" replace />
-                                : <Login />
-                        }
+                        element={<Login />}
                     />
 
                     <Route
                         path="/register"
-                        element={
-                            localStorage.getItem("token")
-                                ? <Navigate to="/dashboard" replace />
-                                : <Register />
-                        }
+                        element={<Register />}
                     />
 
+
+                    {/* =========================
+                        PROTECTED ROUTES
+                    ========================= */}
+
                     <Route element={<ProtectedRoute />}>
+
                         <Route element={<DashboardLayout />}>
+
                             <Route
-                                path="/dashboard"
+                                path="dashboard"
                                 element={<Dashboard />}
                             />
 
                             <Route
-                                path="/quests"
+                                path="quests"
                                 element={<Quests />}
                             />
 
                             <Route
-                                path="/shop"
+                                path="shop"
                                 element={<Shop />}
                             />
 
                             <Route
-                                path="/character"
+                                path="character"
                                 element={<Character />}
                             />
 
                             <Route
-                                path="/inventory"
+                                path="inventory"
                                 element={<Inventory />}
                             />
 
                             <Route
-                                path="/habits"
+                                path="habits"
                                 element={<Habits />}
                             />
 
                             <Route
-                                path="/achievements"
+                                path="achievements"
                                 element={<Achievements />}
                             />
+
                         </Route>
+
                     </Route>
+
+
+                    {/* =========================
+                        FALLBACK
+                    ========================= */}
 
                     <Route
                         path="*"
@@ -96,9 +107,7 @@ function App() {
                     />
 
                 </Routes>
-
             </BrowserRouter>
-
         </GameProvider>
     );
 }
