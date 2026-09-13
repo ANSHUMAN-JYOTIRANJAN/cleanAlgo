@@ -29,10 +29,7 @@ const shopRoutes = require("./routes/shopRoutes");
 // ERROR MIDDLEWARE
 // ========================================
 
-const {
-    errorMiddleware,
-    notFound
-} = require("./middleware/errorMiddleware");
+const { errorMiddleware, notFound } = require("./middleware/errorMiddleware");
 
 // ========================================
 // APP
@@ -51,25 +48,25 @@ connectDB();
 // ========================================
 
 app.use(
-    cors({
-        origin: (origin, callback) => {
-            const allowedOrigins = [
-                process.env.CLIENT_URL,
-                "http://localhost:5173",
-                "http://localhost:5174",
-                "http://127.0.0.1:5173",
-                "http://127.0.0.1:5174"
-            ].filter(Boolean);
+  cors({
+    origin: (origin, callback) => {
+      const allowedOrigins = [
+        process.env.CLIENT_URL,
+        "http://localhost:5173",
+        "http://localhost:5174",
+        "http://127.0.0.1:5173",
+        "http://127.0.0.1:5174",
+      ].filter(Boolean);
 
-            if (!origin || allowedOrigins.includes(origin)) {
-                callback(null, true);
-                return;
-            }
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+        return;
+      }
 
-            callback(new Error("Origin is not allowed by CORS"));
-        },
-        credentials: true
-    })
+      callback(new Error("Origin is not allowed by CORS"));
+    },
+    credentials: true,
+  }),
 );
 
 app.use(express.json());
@@ -80,10 +77,10 @@ app.use(express.urlencoded({ extended: true }));
 // ========================================
 
 app.get("/", (req, res) => {
-    res.status(200).json({
-        success: true,
-        message: "Life RPG API is running 🎮"
-    });
+  res.status(200).json({
+    success: true,
+    message: "Life RPG API is running 🎮",
+  });
 });
 
 // ========================================
@@ -91,11 +88,11 @@ app.get("/", (req, res) => {
 // ========================================
 
 app.get("/api/health", (req, res) => {
-    res.status(200).json({
-        success: true,
-        message: "Server is healthy",
-        timestamp: new Date()
-    });
+  res.status(200).json({
+    success: true,
+    message: "Server is healthy",
+    timestamp: new Date(),
+  });
 });
 
 // ========================================
@@ -129,6 +126,6 @@ app.use(errorMiddleware);
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-    console.log(`🚀 Life RPG server running on port ${PORT}`);
-    console.log(`🌐 http://localhost:${PORT}`);
+  console.log(`🚀 Life RPG server running on port ${PORT}`);
+  console.log(`🌐 http://localhost:${PORT}`);
 });
